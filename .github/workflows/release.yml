@@ -78,7 +78,7 @@ jobs:
     - name: Publish Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "build/*.tar.gz"
+        artifacts: "build/*.tar.gz,build/*.zip"
         name: "${{ steps.get-release-version.outputs.RELEASE_VERSION }}"
         body: "${{ steps.get-release-notes.outputs.RELEASE_NOTES }}"
         tag: "${{ steps.get-release-version.outputs.RELEASE_VERSION }}"
