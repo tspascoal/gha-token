@@ -60,8 +60,8 @@ jobs:
         tar -c -C build/linux -f build/gha-token_${{ steps.get-release-version.outputs.RELEASE_VERSION }}_linux_amd64.tar.gz gha-token
         GOOS=darwin GOARCH=amd64 go build -o build/darwin/gha-token
         tar -c -C build/darwin -f build/gha-token_${{ steps.get-release-version.outputs.RELEASE_VERSION }}_darwin_amd64.tar.gz gha-token
-        GOOS=windows GOARCH=amd64 go build -o build/windows/gha-token
-        tar -c -C build/darwin -f build/gha-token_${{ steps.get-release-version.outputs.RELEASE_VERSION }}_windows_amd64.tar.gz gha-token
+        GOOS=windows GOARCH=amd64 go build -o build/windows/gha-token.exe
+        zip -j -q build/gha-token_${{ steps.get-release-version.outputs.RELEASE_VERSION }}_windows_amd64.zip build/windows/gha-token.exe
 
     - name: Create Release Tag
       uses: actions/github-script@v3
